@@ -1,9 +1,6 @@
 from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        begin = 0
-        end = len(nums)-1
-
         hash_nums = {}
         for i in range(len(nums)):
             complement = target - nums[i]
