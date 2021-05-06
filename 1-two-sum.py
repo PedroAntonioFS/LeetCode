@@ -10,7 +10,3 @@ class Solution:
             if hash_nums.get(complement) != None:
                 return [hash_nums.get(complement), i]
             hash_nums[nums[i]] = i
-
-instance = Solution
-
-print(instance.twoSum(Solution,nums=[2,7,11,15], target=9))
