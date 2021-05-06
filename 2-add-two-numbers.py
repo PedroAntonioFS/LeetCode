@@ -8,7 +8,7 @@ class Solution:
         carry = 0
         initial_node = ListNode()
         current_node = initial_node
-        while (l1 != None) and (l2!= None):
+        while (l1 != None) or (l2!= None):
             current_node.next = ListNode()
             current_node = current_node.next
             current_sum = carry
