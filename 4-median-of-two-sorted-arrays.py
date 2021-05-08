@@ -1,32 +1,19 @@
 from typing import List
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        begin1 = begin2 = beging = endg = 0
-        end1 = len(nums1)-1
-        end2 = len(nums2)-1
+        begin = [0,0,0]
+        end = [0,len(nums1)-1,len(nums2)-1]
+        
+        while True:
+            test_begin = ((begin[1] <= end[1]) and ((begin[2] > end[2]) or (nums1[begin[1]] < nums2[begin[2]])))
+            test_end = ((begin[1] <= end[1]) and ((begin[2] > end[2]) or (nums1[end[1]] > nums2[end[2]])))
 
-        pair = True
-        while (end1 >= begin1) or (end2 >= begin2):
-            if pair:
-                if nums1[begin1] < nums2[begin2]:
-                    beging = nums1[begin1]
-                    begin1 += 1
-                else:
-                    beging = nums2[begin2]
-                    begin2 += 1
-            else:
-                if nums1[end1] > nums2[end2]:
-                    endg = nums1[end1]
-                    end1 -= 1
-                else:
-                    endg = nums2[end2]
-                    end2 -= 1
-            pair = not pair
-        if pair:
-            return (beging+endg)/2
-        else:
-            return beging
+            begin = [1,begin[1]+1,begin[2]] if test_begin else [2,begin[1],begin[2]+1]
+            end = [1,end[1]-1,end[2]] if test_end else [2,end[1],end[2]-1]
 
-sol = Solution()
+            if (begin[1] > end[1]) and (begin[2] > end[2]):
+                break
 
-print(sol.findMedianSortedArrays([0,0], [0,0]))
+        v1 = nums1[begin[1]-1] if begin[0] == 1 else nums2[begin[2]-1]
+        v2 = nums1[end  [1]+1] if end  [0] == 1 else nums2[end  [2]+1]
+        return (v1+v2)/2
