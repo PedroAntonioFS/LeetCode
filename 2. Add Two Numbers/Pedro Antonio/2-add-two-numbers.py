@@ -1,4 +1,5 @@
 #Tempo: O(max(n,m))
+#Espaço: O(max(n,m))
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
