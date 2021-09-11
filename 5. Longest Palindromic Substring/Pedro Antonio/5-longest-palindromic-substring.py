@@ -1,3 +1,5 @@
+# Tempo O(n)
+# Memória O(n)
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         s = s.replace('','#')

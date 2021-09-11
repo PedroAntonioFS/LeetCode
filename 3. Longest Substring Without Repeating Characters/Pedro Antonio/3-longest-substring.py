@@ -1,3 +1,6 @@
+
+# Tempo: O(n)
+# Espaço: O(n)
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         length = 0
