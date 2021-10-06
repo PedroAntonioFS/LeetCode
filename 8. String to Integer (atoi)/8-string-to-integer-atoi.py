@@ -23,11 +23,3 @@ class Solution:
                 return 0
 
         return max(min(int(output), MAX_INT), MIN_INT)
-sol = Solution()
-
-print(sol.myAtoi("42"))
-print(sol.myAtoi("   -42"))
-print(sol.myAtoi("4193 with words"))
-print(sol.myAtoi("words and 987"))
-print(sol.myAtoi("-91283472332"))
-print(sol.myAtoi("-"))
